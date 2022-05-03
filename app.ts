@@ -9,12 +9,14 @@ app.setViewEngine(engines.etaEngine.configure({cache: false}));
 app.use(staticMiddleware({
     path:"/assets",urlMapper:(url)=>url
 }));
+
 app.use(async (ctx,next)=>{
     const start = Date.now();
     console.log("request started on "+start);
     await next();
     console.log("request ended on ",Date.now()-start);
 });
+
 /// start sesion 
 app.use(appSession.inject());
 
