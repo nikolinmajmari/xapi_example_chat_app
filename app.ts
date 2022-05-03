@@ -31,7 +31,6 @@ import authRouter from "./routes/auth.ts";
 import chatRouter from "./routes/chat.ts";
 
 app.use(authRouter);
-
 /// authenticated routes 
 app.use(appAuth.ensureAuthenticated());
 app.use("/",homeRouter);
