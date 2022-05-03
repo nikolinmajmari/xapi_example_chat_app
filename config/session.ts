@@ -1,6 +1,6 @@
-import {SessionProvider, FileAdapter, config, InMemorySessionAdapter} from "../deps.ts";
-
-const envConf = config();
+import {SessionProvider, FileAdapter, InMemorySessionAdapter} from "../deps.ts";
+import {config} from "../dotenv.ts";
+const envConf = await config();
 
 let adapter:any ;
 if(envConf["DEPLOY"]=="deno_depploy"){
@@ -9,8 +9,6 @@ if(envConf["DEPLOY"]=="deno_depploy"){
 }else{
   adapter = new FileAdapter().configure({sessionPath:"./var/session"});
 }
-
-
 const appSession = new SessionProvider({
   adapter: adapter,
   lifetime: 1020202,
