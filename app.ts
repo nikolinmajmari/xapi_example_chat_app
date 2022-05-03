@@ -6,9 +6,12 @@ import appAuth from "./config/auth.ts";
 // cereate the app
 const app = new Application();
 app.setViewEngine(engines.etaEngine.configure({cache: false}));
+
+
 app.use(staticMiddleware({
     path:"/assets",urlMapper:(url)=>url
 }));
+
 
 app.use(async (ctx,next)=>{
     const start = Date.now();
