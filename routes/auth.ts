@@ -25,7 +25,7 @@ router.post("/login",async (ctx,next)=>{
 });
 
 router.get("/signup",async (ctx,next)=>{
-    ctx.res.render("./signup.html");
+    await ctx.res.render("./signup.html");
 });
 
 
