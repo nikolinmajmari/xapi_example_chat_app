@@ -17,7 +17,15 @@ import { getFirestore, collection, addDoc, deleteDoc, getDocs,doc,getDoc,setDoc,
 // This will install the polyfill for localStorage
 installGlobals();
 const env = await  config()
-const firebaseConfig = JSON.parse(env["FIREBASE_CONFIG"]);
+const firebaseConfig = {
+  "apiKey": "AIzaSyDNFyAiYg5g5lW4kHrb7ltp_nQXwcbFKhA",
+  "authDomain": "xapi-chat-app.firebaseapp.com",
+  "projectId": "xapi-chat-app",
+  "storageBucket": "xapi-chat-app.appspot.com",
+  "messagingSenderId": "594751040995",
+  "appId": "1:594751040995:web:4736af5ad4f6e1b81cc4d6",
+  "measurementId": "G-2WLRKJNW4Y"
+};
 const firebaseApp = initializeApp(firebaseConfig, "xapi-chat-app");
 const _db = getFirestore(firebaseApp);
 export const db = {
