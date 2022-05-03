@@ -24,7 +24,7 @@ router.post("/login",async (ctx,next)=>{
     return await ctx.res.redirect("/login");
 });
 
-router.get("/signup",(ctx,next)=>{
+router.get("/signup",async (ctx,next)=>{
     ctx.res.render("./signup.html");
 });
 
