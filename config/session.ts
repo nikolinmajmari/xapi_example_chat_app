@@ -2,10 +2,12 @@ import {SessionProvider, FileAdapter, config, InMemorySessionAdapter} from "../d
 
 const envConf = config();
 
-let adapter:any = new FileAdapter().configure({sessionPath:"./var/session"});
+let adapter:any ;
 if(envConf["DEPLOY"]=="deno_depploy"){
   console.log("loaded",envConf);
   adapter = new InMemorySessionAdapter();
+}else{
+  adapter = new FileAdapter().configure({sessionPath:"./var/session"});
 }
 
 
