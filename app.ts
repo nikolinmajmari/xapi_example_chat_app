@@ -39,5 +39,5 @@ app.use("/chat",chatRouter);
 
 
 // start the web server
-app.listen(8000);
+app.listen(80);
     
