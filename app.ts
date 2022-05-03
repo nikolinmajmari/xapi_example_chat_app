@@ -13,7 +13,12 @@ app.use(staticMiddleware({
 app.use(async (ctx,next)=>{
     const start = Date.now();
     console.log("request started on "+start);
-    await next();
+    try{
+        await next();
+    }catch(e){
+        console.log(e);
+        await ctx.res.text(e.toString());
+    }
     console.log("request ended on ",Date.now()-start);
 });
 
